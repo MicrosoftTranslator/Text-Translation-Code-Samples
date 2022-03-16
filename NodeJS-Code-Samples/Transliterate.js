@@ -13,7 +13,7 @@ if (!process.env[key_var]) {
 }
 var subscriptionKey = process.env[key_var];
 
-var region_var = 'TRANSLATOR_TEXT_RESOURCE_REGION';
+var region_var = 'TRANSLATOR_TEXT_REGION';
 if (!process.env[region_var]) {
     throw new Error('Please set/export the following environment variable: ' + region_var);
 }
