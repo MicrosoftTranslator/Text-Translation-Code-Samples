@@ -18,7 +18,7 @@ if (!process.env[endpoint_var]) {
 }
 var endpoint = process.env[endpoint_var];
 
-var region_var = 'TRANSLATOR_TEXT_REGION_AKA_LOCATION';
+var region_var = 'TRANSLATOR_TEXT_REGION';
 if (!process.env[region_var]) {
     throw new Error('Please set/export the following environment variable: ' + region_var);
 }
