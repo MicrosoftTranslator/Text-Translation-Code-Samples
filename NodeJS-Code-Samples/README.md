@@ -31,7 +31,7 @@ Here's what you'll need before you use these samples:
 
 * Your favorite IDE or text editor
 * [Node 8.12.x or later](https://nodejs.org/en/)
-* An Azure subscription - [Sign-up for a free account](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)!
+* An Azure resourceKey - [Sign-up for a free account](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)!
 * A Translator resource - [Create a Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)
 
 ## Code samples
@@ -40,7 +40,7 @@ This repository includes a sample for each of the methods made available by the 
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
-* Set your subscription key.
+* Set your resourceKey, region and endpoint.
 * Run the program. For example: `node Translate.js`.
 
 ## Resources

@@ -6,11 +6,11 @@ way to make HTTP requests. */
 const request = require('request');
 const uuidv4 = require('uuid/v4');
 
-var key_var = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY';
+var key_var = 'TRANSLATOR_TEXT_RESOURCE_KEY';
 if (!process.env[key_var]) {
     throw new Error('Please set/export the following environment variable: ' + key_var);
 }
-var subscriptionKey = process.env[key_var];
+var resourceKey = process.env[key_var];
 
 var endpoint_var = 'TRANSLATOR_TEXT_ENDPOINT';
 if (!process.env[endpoint_var]) {
@@ -36,7 +36,7 @@ function translateText(){
           'to': ['de', 'it']
         },
         headers: {
-          'Ocp-Apim-Subscription-Key': subscriptionKey,
+          'Ocp-Apim-Subscription-Key': resourceKey,
           'Ocp-Apim-Subscription-Region': region,
           'Content-type': 'application/json',
           'X-ClientTraceId': uuidv4().toString()

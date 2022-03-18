@@ -9,10 +9,10 @@
 
 import os, requests, uuid, json
 
-key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+key_var_name = 'TRANSLATOR_TEXT_RESOURCE_KEY'
 if not key_var_name in os.environ:
     raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
+resource_key = os.environ[key_var_name]
 
 region_var_name = 'TRANSLATOR_TEXT_REGION'
 if not region_var_name in os.environ:
@@ -31,7 +31,7 @@ params = '&from=en&to=de&to=it'
 constructed_url = endpoint + path + params
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': resource_key,
     'Ocp-Apim-Subscription-Region': region,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())

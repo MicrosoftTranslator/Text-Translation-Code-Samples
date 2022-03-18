@@ -36,7 +36,7 @@ The code in this repository contains examples for all of the Microsoft Text Tran
 
 1. Create a new Go project in your favorite code editor.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `resourceKey` value with an access key valid for your subscription.
 4. Save the file with a '.go' extension.
 5. Open a command prompt on a computer with Go installed.
 6. Build the file, for example: 'go build example-code.go'.

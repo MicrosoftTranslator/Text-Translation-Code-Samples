@@ -33,8 +33,8 @@ namespace DetectSample
         private const string region_var = "TRANSLATOR_SERVICE_REGION";
         private static readonly string region = Environment.GetEnvironmentVariable(region_var);
 
-        private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
-        private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+        private const string key_var = "TRANSLATOR_TEXT_RESOURCE_KEY";
+        private static readonly string resourceKey = Environment.GetEnvironmentVariable(key_var);
 
         private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
         private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
@@ -45,7 +45,7 @@ namespace DetectSample
             {
                 throw new Exception("Please set/export the environment variable: " + region_var);
             }
-            if (null == subscriptionKey)
+            if (null == resourceKey)
             {
                 throw new Exception("Please set/export the environment variable: " + key_var);
             }
@@ -56,7 +56,7 @@ namespace DetectSample
         }
 
         // Async call to the Translator Text API
-        static public async Task DetectTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
+        static public async Task DetectTextRequest(string resourceKey, string endpoint, string route, string inputText)
         {
             object[] body = new object[] { new { Text = inputText } };
             var requestBody = JsonConvert.SerializeObject(body);
@@ -68,7 +68,7 @@ namespace DetectSample
                 request.Method = HttpMethod.Post;
                 request.RequestUri = new Uri(endpoint + route);
                 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", resourceKey);
                 request.Headers.Add("Ocp-Apim-Subscription-Region", region);
 
                 // Send the request and get response.
@@ -105,7 +105,7 @@ namespace DetectSample
             // https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect
             string route = "/detect?api-version=3.0";
             string detectSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
-            await DetectTextRequest(subscriptionKey, endpoint, route, detectSentenceText);
+            await DetectTextRequest(resourceKey, endpoint, route, detectSentenceText);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
         }

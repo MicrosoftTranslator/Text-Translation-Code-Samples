@@ -57,8 +57,8 @@ namespace Text_Translation_API_V3_C_Sharp_master
         private const string region_var = "TRANSLATOR_SERVICE_REGION";
         private static readonly string region = Environment.GetEnvironmentVariable(region_var);
 
-        private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
-        private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+        private const string key_var = "TRANSLATOR_TEXT_RESOURCE_KEY";
+        private static readonly string resourceKey = Environment.GetEnvironmentVariable(key_var);
 
         private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
         private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
@@ -69,7 +69,7 @@ namespace Text_Translation_API_V3_C_Sharp_master
             {
                 throw new Exception("Please set/export the environment variable: " + region_var);
             }
-            if (null == subscriptionKey)
+            if (null == resourceKey)
             {
                 throw new Exception("Please set/export the environment variable: " + key_var);
             }
@@ -80,7 +80,7 @@ namespace Text_Translation_API_V3_C_Sharp_master
         }
 
         // Async call to the Translator Text API
-        static public async Task TranslateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
+        static public async Task TranslateTextRequest(string resourceKey, string endpoint, string route, string inputText)
         {
             object[] body = new object[] { new { Text = inputText } };
             var requestBody = JsonConvert.SerializeObject(body);
@@ -92,7 +92,7 @@ namespace Text_Translation_API_V3_C_Sharp_master
                 request.Method = HttpMethod.Post;
                 request.RequestUri = new Uri(endpoint + route);
                 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", resourceKey);
                 request.Headers.Add("Ocp-Apim-Subscription-Region", region);
 
                 // Send the request and get response.
@@ -103,7 +103,7 @@ namespace Text_Translation_API_V3_C_Sharp_master
                 // Iterate over the deserialized results.
                 foreach (TranslationResult o in deserializedOutput)
                 {
-                    // Print the detected input languge and confidence score.
+                    // Print the detected input language and confidence score.
                     Console.WriteLine("Detected input language: {0}\nConfidence score: {1}\n", o.DetectedLanguage.Language, o.DetectedLanguage.Score);
                     // Iterate over the results and print each translation.
                     foreach (Translation t in o.Translations)
@@ -125,7 +125,7 @@ namespace Text_Translation_API_V3_C_Sharp_master
             // provide a string as textToTranslate.
             Console.Write("Type the phrase you'd like to translate? ");
             string textToTranslate = Console.ReadLine();
-            await TranslateTextRequest(subscriptionKey, endpoint, route, textToTranslate);
+            await TranslateTextRequest(resourceKey, endpoint, route, textToTranslate);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
         }
