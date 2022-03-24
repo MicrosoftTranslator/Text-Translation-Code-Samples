@@ -48,3 +48,4 @@ This repository includes a sample for each of the methods made available by the 
 * [What is Translator?](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview)
 * [v3 Translator API Reference](https://docs.microsoft.com/azure/cognitive-services/translator/)
 * [Supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)
+* [Authenticate with Azure Active Directory](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-reference#authentication-with-azure-active-directory-azure-ad)
