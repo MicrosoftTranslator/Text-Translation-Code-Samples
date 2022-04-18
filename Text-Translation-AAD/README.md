@@ -2,7 +2,7 @@
 page_type: sample
 name: Microsoft Translator C# samples (v3)
 description: This repository includes C# code samples for Microsoft Translator. 
-urlFragment: translator-c-sharp-v3
+urlFragment: translator-c-sharp-aad-v3
 languages:
 - csharp
 products:
