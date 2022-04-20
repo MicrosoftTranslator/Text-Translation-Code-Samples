@@ -1,7 +1,7 @@
 ---
 page_type: sample
-name: Microsoft Translator C# samples (v3)
-description: This repository includes C# code samples for Microsoft Translator. 
+name: Microsoft Translator C# samples Azure Token (v3)
+description: This repository includes C# code samples using Azure Token for Microsoft Translator. 
 urlFragment: translator-c-sharp-azure-token-v3
 languages:
 - csharp
