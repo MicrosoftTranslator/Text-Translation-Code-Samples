@@ -1,7 +1,7 @@
 ---
 page_type: sample
-name: Microsoft Translator C# samples (v3)
-description: This repository includes C# code samples for Microsoft Translator. 
+name: Microsoft Translator C# samples Azure AD (v3)
+description: This repository includes C# code samples using AAD for Microsoft Translator. 
 urlFragment: translator-c-sharp-aad-v3
 languages:
 - csharp
