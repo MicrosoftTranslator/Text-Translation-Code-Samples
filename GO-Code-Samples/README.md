@@ -7,7 +7,7 @@ languages:
 - go
 products:
 - azure
-- azure-cognitive-services
+- ai-services
 - azure-translator
 ---
 
